@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yılan Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Yılan Oyunu</h1>
+        <div class="game-controls">
+            <select id="difficulty">
+                <option value="200">Kolay</option>
+                <option value="100" selected>Normal</option>
+                <option value="50">Zor</option>
+            </select>
+            <label class="sound-toggle">
+                <input type="checkbox" id="soundToggle" checked>
+                Ses
+            </label>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="score">Skor: <span id="score">0</span> | En Yüksek: <span id="highScore">0</span></div>
+        <button id="startButton">Oyunu Başlat</button>
+        <div class="mobile-controls">
+            <button id="upBtn">↑</button>
+            <div class="horizontal-controls">
+                <button id="leftBtn">←</button>
+                <button id="rightBtn">→</button>
+            </div>
+            <button id="downBtn">↓</button>
+        </div>
+        <div class="game-info">
+            <p>Kontroller:</p>
+            <p>↑↓←→ : Hareket | Space : Duraklat | Enter : Başlat</p>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
