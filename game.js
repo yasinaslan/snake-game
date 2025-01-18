@@ -471,4 +471,63 @@ soundToggle.addEventListener('change', () => {
     } else if (isGameRunning && !isPaused) {
         playSound('move');
     }
+});
+
+// Mobil kontrol butonları için event listener'lar
+const upBtn = document.getElementById('upBtn');
+const downBtn = document.getElementById('downBtn');
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
+
+upBtn.addEventListener('click', () => {
+    if (lastDirection !== 'down' && isGameRunning && !isPaused) {
+        nextDirection = 'up';
+    }
+});
+
+downBtn.addEventListener('click', () => {
+    if (lastDirection !== 'up' && isGameRunning && !isPaused) {
+        nextDirection = 'down';
+    }
+});
+
+leftBtn.addEventListener('click', () => {
+    if (lastDirection !== 'right' && isGameRunning && !isPaused) {
+        nextDirection = 'left';
+    }
+});
+
+rightBtn.addEventListener('click', () => {
+    if (lastDirection !== 'left' && isGameRunning && !isPaused) {
+        nextDirection = 'right';
+    }
+});
+
+// Mobil dokunmatik olayları için
+upBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (lastDirection !== 'down' && isGameRunning && !isPaused) {
+        nextDirection = 'up';
+    }
+});
+
+downBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (lastDirection !== 'up' && isGameRunning && !isPaused) {
+        nextDirection = 'down';
+    }
+});
+
+leftBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (lastDirection !== 'right' && isGameRunning && !isPaused) {
+        nextDirection = 'left';
+    }
+});
+
+rightBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (lastDirection !== 'left' && isGameRunning && !isPaused) {
+        nextDirection = 'right';
+    }
 }); 

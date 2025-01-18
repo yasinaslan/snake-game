@@ -84,15 +84,12 @@ canvas {
 }
 
 .mobile-controls button {
-    width: 60px;
-    height: 60px;
+    padding: 15px 25px;
+    margin: 5px;
     font-size: 24px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 .mobile-controls button:hover {
@@ -120,6 +117,12 @@ canvas {
     }
     
     .game-info p:last-child {
+        display: none;
+    }
+} 
+
+@media (hover: hover) {
+    .mobile-controls {
         display: none;
     }
 } 
