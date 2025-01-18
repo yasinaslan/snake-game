@@ -479,55 +479,33 @@ const downBtn = document.getElementById('downBtn');
 const leftBtn = document.getElementById('leftBtn');
 const rightBtn = document.getElementById('rightBtn');
 
-upBtn.addEventListener('click', () => {
-    if (lastDirection !== 'down' && isGameRunning && !isPaused) {
-        nextDirection = 'up';
-    }
-});
+const mobileButtons = [upBtn, downBtn, leftBtn, rightBtn];
 
-downBtn.addEventListener('click', () => {
-    if (lastDirection !== 'up' && isGameRunning && !isPaused) {
-        nextDirection = 'down';
-    }
-});
+function addMobileButtonListeners(btn, direction, oppositeDirection) {
+    const handleStart = (e) => {
+        e.preventDefault();
+        if (lastDirection !== oppositeDirection && isGameRunning && !isPaused) {
+            nextDirection = direction;
+            btn.classList.add('active');
+        }
+    };
 
-leftBtn.addEventListener('click', () => {
-    if (lastDirection !== 'right' && isGameRunning && !isPaused) {
-        nextDirection = 'left';
-    }
-});
+    const handleEnd = () => {
+        btn.classList.remove('active');
+    };
 
-rightBtn.addEventListener('click', () => {
-    if (lastDirection !== 'left' && isGameRunning && !isPaused) {
-        nextDirection = 'right';
-    }
-});
+    btn.addEventListener('touchstart', handleStart);
+    btn.addEventListener('mousedown', handleStart);
+    btn.addEventListener('touchend', handleEnd);
+    btn.addEventListener('mouseup', handleEnd);
+    btn.addEventListener('mouseleave', handleEnd);
+}
 
-// Mobil dokunmatik olayları için
-upBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    if (lastDirection !== 'down' && isGameRunning && !isPaused) {
-        nextDirection = 'up';
-    }
-});
+// Her buton için listener'ları ekle
+addMobileButtonListeners(upBtn, 'up', 'down');
+addMobileButtonListeners(downBtn, 'down', 'up');
+addMobileButtonListeners(leftBtn, 'left', 'right');
+addMobileButtonListeners(rightBtn, 'right', 'left');
 
-downBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    if (lastDirection !== 'up' && isGameRunning && !isPaused) {
-        nextDirection = 'down';
-    }
-});
-
-leftBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    if (lastDirection !== 'right' && isGameRunning && !isPaused) {
-        nextDirection = 'left';
-    }
-});
-
-rightBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    if (lastDirection !== 'left' && isGameRunning && !isPaused) {
-        nextDirection = 'right';
-    }
-}); 
+// Eski event listener'ları kaldır
+// ... Önceki click ve touchstart event listener'larını silin ... 
